@@ -7,37 +7,43 @@
     <h:head>
         <title>Calculadora</title>
     </h:head>
-    <h:body  style="background-color: #b9c6f3">
+    <h:body  style="background-color: #EFEFEF">
         <h:form>
             <p:panel header="Calculadora" style="width:250px; margin:0 auto" >
-                <p:inputText value="#{ct.visor}" style="text-align: right" /> 
-                <h:panelGrid columns="4" style="width: 95%">
-                    <p:commandButton action="#{ct.bt07(a)}" update ="@form" value="7"/>
-                    <p:commandButton action="#{ct.bt08(a)}" update ="@form "value="8"/>
-                    <p:commandButton value="9"/>
-                    <p:commandButton value="+" styleClass="ui-button-secondary"/>
+                <p:inputText value="#{ct.visor}" disabled="true" style="text-align: right; width: 100%; margin-bottom: 5px" /> 
+                <h:panelGrid columns="4" style="width:  100%; margin-bottom: 5px">
+                    
+                    <p:commandButton action="#{ct.bt07(a)}" update="@form" value="7"/>
+                    <p:commandButton action="#{ct.bt08(a)}" update="@form" value="8"/>
+                    <p:commandButton action="#{ct.bt09(a)}" update="@form" value="9"/>
+                    <p:commandButton action="#{ct.btSoma(a)}" update="@form" value="+" styleClass="ui-button-secondary" />
+                    
                 </h:panelGrid>
-                <h:panelGrid columns="4" style="width: 95%">
-                    <p:commandButton value="4"/>
-                    <p:commandButton value="5"/>
-                    <p:commandButton value="6"/>
-                    <p:commandButton value="-" styleClass="ui-button-secondary"/>
-                </h:panelGrid>
-
-                <h:panelGrid columns="4" style="width: 95%">
-                    <p:commandButton value="3"/>
-                    <p:commandButton value="2"/>
-                    <p:commandButton value="1"/>
-                    <p:commandButton value="/" styleClass="ui-button-secondary"/>
+                
+                <h:panelGrid columns="4" style="width: 100%; margin-bottom: 5px">
+                    <p:commandButton action="#{ct.bt04(a)}" update="@form" value="4"/>
+                    <p:commandButton action="#{ct.bt05(a)}" update="@form" value="5"/>
+                    <p:commandButton action="#{ct.bt06(a)}" update="@form" value="6"/>
+                    <p:commandButton action="#{ct.btMenos(a)}" update="@form" value="-" styleClass="ui-button-secondary"/>
+                    
                 </h:panelGrid>
 
-                <h:panelGrid columns="4" style="width: 95%">
-                    <p:commandButton action="#{ct.Limpar(a)}" update="@form=" value="c" styleClass="ui-button-secondary"/>
-                    <p:commandButton action="#{ct.btIgual(a)}" update="@form"value="0"/>
-                    <p:commandButton value="="/>
-                    <p:commandButton value="X" styleClass="ui-button-secondary"/>
+                <h:panelGrid columns="4" style="width: 100%; margin-bottom: 5px">
+                    <p:commandButton action="#{ct.bt03(a)}" update="@form" value="3"/>
+                    <p:commandButton action="#{ct.bt02(a)}" update="@form" value="2"/>
+                    <p:commandButton action="#{ct.bt01(a)}" update="@form" value="1"/>
+                    <p:commandButton action="#{ct.btDiv(a)}" update="@form" value="/"  styleClass="ui-button-secondary"/>
+                    
+                </h:panelGrid>
+
+                <h:panelGrid columns="4" style="width:  100%; margin-bottom: 5px">
+                    <p:commandButton action="#{ct.btLimpar(a)}" update="@form" value="c" styleClass="ui-button-secondary"/>
+                    <p:commandButton action="#{ct.bt00(a)}" update="@form" value="0" />
+                    <p:commandButton action="#{ct.btIgual(a)}" update="@form" value="=" styleClass="ui-button-secondary"/>
+                    <p:commandButton action="#{ct.btMult(a)}" update="@form" value="X" styleClass="ui-button-secondary"/>
+                    
                 </h:panelGrid>
             </p:panel>
-        </h:form>
+            </h:form>
     </h:body>
 </html>
