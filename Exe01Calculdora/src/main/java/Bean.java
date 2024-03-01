@@ -1,70 +1,231 @@
-import java.awt.event.ActionEvent;
-import javax.enterprise.context.SessionScoped;
+
+import javax.faces.event.ActionEvent;
+import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-
 
 @ManagedBean(name = "ct")
 @SessionScoped
 public class Bean implements Serializable {
 
-   
-    public void Limpar (ActionEvent a) {
+    public Bean() {
         setVisor("0");
-        setN1(0);
-        setN2(0);
-        setRes(0);
-        setOp("");
     }//builder -  limpar
-    
-    public void btSoma(ActionEvent a){
-        setN1(Double.parseDouble(getVisor()));
-        setOp("+");
-    }// btSOma
-    
+
     private String visor;
     private double n1;
     private double n2;
     private double res;
     private String op;
 
-    public void  bt07(ActionEvent a){
-      if(getVisor().equals("0")|| getOp()==null)  
-          setVisor("7");
-      else if(getVisor().equals("0")|| getOp()==null){
-          String prov = getVisor();
-          ///armazenar provisoriamente o valor do visor
-          prov+="7";
-          //prov = prov = "7";
-          setVisor(prov);
-          
-      }else if(!getVisor().equals("0")|| getOp()!=null){
-          setVisor("7");
-          
-      }
-    }///bt 07
-    public void btIgual(ActionEvent a){
+    public void btLimpar(ActionEvent a) {
+        setVisor("0");
+        setN1(0);
+        setN2(0);
+        setRes(0);
+        setOp("");
+    }
+
+    public void btSoma(ActionEvent a) {
+        setOp("+");
+        setN1(Double.parseDouble(getVisor()));
+    }// btSOma
+
+    public void btMenos(ActionEvent a) {
+        setOp("-");
+        setN1(Double.parseDouble(getVisor()));
+        
+    }//btMeno
+
+    public void btMult(ActionEvent a) {
+        setOp("X");
+        setN1(Double.parseDouble(getVisor()));
+    }//btmultiplicar
+
+    public void btDiv(ActionEvent a) {
+        setOp("/");
+        setN1(Double.parseDouble(getVisor()));
+
+    }//btDividir
+
+    public void btIgual(ActionEvent a) {
         setN2(Double.parseDouble(getVisor()));
+        Double aux = 0.0;
         switch (getOp()) {
             case "+":
-                setVisor(String.valueOf(getN1()+ getN2()));
-        }    
+                aux = n1 + n2;
+                setVisor(aux.toString());
+                break;
+            case "-":
+                aux = n1 - n2;
+                setVisor(aux.toString());
+                break;
+            case "X":
+                aux = n1 * n2;
+                setVisor(aux.toString());
+                break;
+            case "/":
+                aux = n1 / n2;
+                setVisor(aux.toString());
+
+                break;
+
+        }
     }
-    public void  bt08(ActionEvent a){
-      if(getVisor().equals("0")|| getOp()==null)  
-          setVisor("8");
-      else if(getVisor().equals("0")|| getOp()==null){
-          String prov = getVisor();
-          ///armazenar provisoriamente o valor do visor
-          prov+="8";
-          //prov = prov = "8";
-          setVisor(prov);
-          
-      }
+
+    public void bt07(ActionEvent a) {
+        if (getVisor().equals("0")) {
+            setVisor("7");
+        } else if (!getVisor().equals("0") && getOp() == null) {
+            String prov = getVisor();
+            ///armazenar provisoriamente o valor do visor
+            prov += "7";
+            //prov = prov = "7";
+            setVisor(prov);
+
+        } else if (!getVisor().equals("0") && getOp() != null) {
+            setVisor("7");
+
+        }
+    }///bt 07
+
+    public void bt08(ActionEvent a) {
+        if (getVisor().equals("0")) {
+            setVisor("8");
+        } else if (!getVisor().equals("0") && getOp() == null) {
+            String prov = getVisor();
+            ///armazenar provisoriamente o valor do visor
+            prov += "8";
+            //prov = prov = "8";
+            setVisor(prov);
+
+        } else if (!getVisor().equals("0") && getOp() != null) {
+            setVisor("8");
+        }
     }///bt 08
     
+     public void bt09(ActionEvent a) {
+        if (getVisor().equals("0")) {
+            setVisor("9");
+        } else if (!getVisor().equals("0") && getOp() == null) {
+            String prov = getVisor();
+            ///armazenar provisoriamente o valor do visor
+            prov += "9";
+            //prov = prov = "8";
+            setVisor(prov);
+
+        } else if (!getVisor().equals("0") && getOp() != null) {
+            setVisor("9");
+        }
+    }///bt 09
+     
+      public void bt04(ActionEvent a) {
+        if (getVisor().equals("0")) {
+            setVisor("4");
+        } else if (!getVisor().equals("0") && getOp() == null) {
+            String prov = getVisor();
+            ///armazenar provisoriamente o valor do visor
+            prov += "4";
+            //prov = prov = "4";
+            setVisor(prov);
+
+        } else if (!getVisor().equals("0") && getOp() != null) {
+            setVisor("4");
+        }
+    }///bt 04
+      
+       public void bt05(ActionEvent a) {
+        if (getVisor().equals("0")) {
+            setVisor("5");
+        } else if (!getVisor().equals("0") && getOp() == null) {
+            String prov = getVisor();
+            ///armazenar provisoriamente o valor do visor
+            prov += "5";
+            //prov = prov = "5";
+            setVisor(prov);
+
+        } else if (!getVisor().equals("0") && getOp() != null) {
+            setVisor("5");
+        }
+    }///bt 05
+       
+        public void bt06(ActionEvent a) {
+        if (getVisor().equals("0")) {
+            setVisor("6");
+        } else if (!getVisor().equals("0") && getOp() == null) {
+            String prov = getVisor();
+            ///armazenar provisoriamente o valor do visor
+            prov += "6";
+            //prov = prov = "6";
+            setVisor(prov);
+
+        } else if (!getVisor().equals("0") && getOp() != null) {
+            setVisor("6");
+        }
+    }///bt 06
+        
+         public void bt01(ActionEvent a) {
+        if (getVisor().equals("0")) {
+            setVisor("1");
+        } else if (!getVisor().equals("0") && getOp() == null) {
+            String prov = getVisor();
+            ///armazenar provisoriamente o valor do visor
+            prov += "1";
+            //prov = prov = "1";
+            setVisor(prov);
+
+        } else if (!getVisor().equals("0") && getOp() != null) {
+            setVisor("1");
+        }
+    }///bt 01
+         
+          public void bt02(ActionEvent a) {
+        if (getVisor().equals("0")) {
+            setVisor("2");
+        } else if (!getVisor().equals("0") && getOp() == null) {
+            String prov = getVisor();
+            ///armazenar provisoriamente o valor do visor
+            prov += "2";
+            //prov = prov = "2";
+            setVisor(prov);
+
+        } else if (!getVisor().equals("0") && getOp() != null) {
+            setVisor("2");
+        }
+    }///bt 02
+          
+           public void bt03(ActionEvent a) {
+        if (getVisor().equals("0")) {
+            setVisor("3");
+        } else if (!getVisor().equals("0") && getOp() == null) {
+            String prov = getVisor();
+            ///armazenar provisoriamente o valor do visor
+            prov += "3";
+            //prov = prov = "8";
+            setVisor(prov);
+
+        } else if (!getVisor().equals("0") && getOp() != null) {
+            setVisor("3");
+        }
+    }///bt 03
+           
+           public void bt00(ActionEvent a) {
+        if (getVisor().equals("0")) {
+            setVisor("0");
+        } else if (!getVisor().equals("0") && getOp() == null) {
+            String prov = getVisor();
+            ///armazenar provisoriamente o valor do visor
+            prov += "0";
+            //prov = prov = "0";
+            setVisor(prov);
+
+        } else if (!getVisor().equals("0") && getOp() != null) {
+            setVisor("0");
+        }
+    }///bt 00
+
     //////////////////////////GET E SET
-        public String getVisor() {
+    public String getVisor() {
         return visor;
     }
 
@@ -103,8 +264,5 @@ public class Bean implements Serializable {
     public void setOp(String op) {
         this.op = op;
     }
-    
-    
-    
-    
+
 }// class
