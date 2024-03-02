@@ -15,6 +15,7 @@ public class Bean implements Serializable {
     private String visor;
     private double n1;
     private double n2;
+    private boolean ver;
     private double res;
     private String op;
 
@@ -24,27 +25,32 @@ public class Bean implements Serializable {
         setN2(0);
         setRes(0);
         setOp("");
+        ver = false;
     }
 
     public void btSoma(ActionEvent a) {
         setOp("+");
         setN1(Double.parseDouble(getVisor()));
+        ver = true;
     }// btSOma
 
     public void btMenos(ActionEvent a) {
         setOp("-");
         setN1(Double.parseDouble(getVisor()));
+        ver = true;
         
     }//btMeno
 
     public void btMult(ActionEvent a) {
         setOp("X");
         setN1(Double.parseDouble(getVisor()));
+        ver = true;
     }//btmultiplicar
 
     public void btDiv(ActionEvent a) {
         setOp("/");
         setN1(Double.parseDouble(getVisor()));
+        ver =true;
 
     }//btDividir
 
@@ -83,9 +89,14 @@ public class Bean implements Serializable {
             //prov = prov = "7";
             setVisor(prov);
 
-        } else if (!getVisor().equals("0") && getOp() != null) {
+        } else if (ver == true) {
             setVisor("7");
-
+            ver = false;
+        }else{
+            String prov = getVisor();
+            //Armazena o valor atual do visor
+            prov+= "7";
+            setVisor(prov);
         }
     }///bt 07
 
@@ -99,8 +110,13 @@ public class Bean implements Serializable {
             //prov = prov = "8";
             setVisor(prov);
 
-        } else if (!getVisor().equals("0") && getOp() != null) {
+        } else if (ver == true) {
             setVisor("8");
+            ver = false;
+        }else{
+            String prov = getVisor();
+            prov+= "8";
+            setVisor(prov);
         }
     }///bt 08
     
@@ -114,8 +130,13 @@ public class Bean implements Serializable {
             //prov = prov = "8";
             setVisor(prov);
 
-        } else if (!getVisor().equals("0") && getOp() != null) {
+        } else if (ver == true) {
             setVisor("9");
+            ver = false;
+        }else{
+            String prov = getVisor();
+            prov+= "9";
+            setVisor(prov);
         }
     }///bt 09
      
@@ -129,8 +150,13 @@ public class Bean implements Serializable {
             //prov = prov = "4";
             setVisor(prov);
 
-        } else if (!getVisor().equals("0") && getOp() != null) {
+        } else if (ver == true) {
             setVisor("4");
+            ver = false;
+        }else{
+            String prov = getVisor();
+            prov+= "4";
+            setVisor(prov);
         }
     }///bt 04
       
@@ -144,8 +170,13 @@ public class Bean implements Serializable {
             //prov = prov = "5";
             setVisor(prov);
 
-        } else if (!getVisor().equals("0") && getOp() != null) {
+        } else if (ver == true) {
             setVisor("5");
+            ver = false;
+        }else{
+            String prov = getVisor();
+            prov+= "5";
+            setVisor(prov);
         }
     }///bt 05
        
@@ -159,8 +190,13 @@ public class Bean implements Serializable {
             //prov = prov = "6";
             setVisor(prov);
 
-        } else if (!getVisor().equals("0") && getOp() != null) {
+        } else if (ver == true) {
             setVisor("6");
+            ver = false;
+        }else{
+            String prov = getVisor();
+            prov+= "6";
+            setVisor(prov);
         }
     }///bt 06
         
@@ -174,8 +210,13 @@ public class Bean implements Serializable {
             //prov = prov = "1";
             setVisor(prov);
 
-        } else if (!getVisor().equals("0") && getOp() != null) {
+        } else if (ver == true) {
             setVisor("1");
+            ver = false;
+        }else{
+            String prov = getVisor();
+            prov+= "1";
+            setVisor(prov);
         }
     }///bt 01
          
@@ -189,8 +230,13 @@ public class Bean implements Serializable {
             //prov = prov = "2";
             setVisor(prov);
 
-        } else if (!getVisor().equals("0") && getOp() != null) {
+        } else if (ver ==  true) {
             setVisor("2");
+            ver = false;
+        }else{
+            String prov = getVisor();
+            prov+= "2";
+            setVisor(prov);
         }
     }///bt 02
           
@@ -204,8 +250,13 @@ public class Bean implements Serializable {
             //prov = prov = "8";
             setVisor(prov);
 
-        } else if (!getVisor().equals("0") && getOp() != null) {
+        } else if (ver == true) {
             setVisor("3");
+            ver = false;
+        }else{
+            String prov = getVisor();
+            prov+= "3";
+            setVisor(prov);
         }
     }///bt 03
            
@@ -219,8 +270,13 @@ public class Bean implements Serializable {
             //prov = prov = "0";
             setVisor(prov);
 
-        } else if (!getVisor().equals("0") && getOp() != null) {
+        } else if (ver == true) {
             setVisor("0");
+            ver = false;
+        }else{
+            String prov = getVisor();
+            prov += "0";
+            setVisor(prov);
         }
     }///bt 00
 
