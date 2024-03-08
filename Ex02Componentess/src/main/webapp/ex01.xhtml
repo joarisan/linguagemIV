@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Formulário</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel>
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Nome"/>
+                    <p:inputText value="#{ct.cpNome}"/>
+                    <p:outputLabel value="Curso"/>
+                    <p:selectOneMenu value="#{ct.cpCurso}">
+                        <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        <f:selectItem itemLabel="Informatica" itemValue="Informatica"/>
+                        <f:selectItem itemLabel="Quimica" itemValue="Quimica"/>
+                        <f:selectItem itemLabel="Secretariado" itemValue="Secretariado"/>    
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Sexo"/>
+                    <p:selectOneRadio value="#{ct.cpSexo}"> 
+                        <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+                        <f:selectItem itemLabel="Feminino" itemValue="Feminino"/>
+                    </p:selectOneRadio>
+
+                    <p:outputLabel value="Deseja a receber informações"/>
+                    <p:selectBooleanCheckbox value="#{ct.cpinfo}"/>
+                    <p:outputLabel value="Senha"/>
+                    <p:password feedback="true" toggleMask="true" value="#{ct.cpSenha}"
+                                promptLabel="letras, com numeros e caracteres especiais"
+                                weakLabel="Fraquinha" goodLabel="Boa senha"
+                                strongLabel="Foda!" redisplay="true"/>
+                    <h:panelGrid columns="3">
+                        <p:link outcome="index" value="Voltar"/>
+                        <p:commandButton action="#{ct.btlimpar(ae)}" update="@form" value="Limpar"/>
+                        <p:commandButton action="#{ct.btCadastrar(ae)}" update="@form" value="Cadastrar"/>
+
+                    </h:panelGrid>
+                    </h:panelGrid>
+
+            </p:panel>
+
+        </h:form>
+    </h:body>
+</html>
