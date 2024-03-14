@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Salario</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel>
+                <h:panelGrid columns="1">
+                    <p:outputLabel value="PREENCHA O CAMPO COM SALÁRIO DE UM FUNCIONÁRIO:"/>
+                    <p:inputText value="#{ct.cpSalario}"/>
+                    <p:outputLabel value="Novo Salário é:"/>
+                    <p:inputText value="#{ct.cpNovoSal}"/>
+
+                    <h:panelGrid columns="3">
+                        <p:link outcome="index" value="Voltar"/>
+                        <p:commandButton action="#{ct.btLimpar(ae)}" update="@form" value="Limpar"/>
+                        <p:commandButton action="#{ct.btCalculaSalario(ae)}" update="@form" value="Calcular"/>
+                        
+                    </h:panelGrid>
+
+
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
