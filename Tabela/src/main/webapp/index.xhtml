@@ -14,29 +14,29 @@
                 <div class="ui-g">
                     <div class="ui-g-12 ui-lg-6">
                         <p:outputLabel value="Cliente"/>
-                        <p:inputText style="width: 100%"/>
+                        <p:inputText style="width: 100%" value="#{ct.cpNome}" 4/>
                     </div>
                     <div class="ui-g-12 ui-lg-4">
                         <p:outputLabel value="Contato"/>
-                        <p:inputText style="width: 100%"/>
+                        <p:inputText style="width: 100%" value="#{ct.cpContato}"/>
                     </div>
                     <div class="ui-g-12 ui-lg-2">
                         <br/>
-                        <p:commandButton style="width: 100%" value="Salvar"/>
+                        <p:commandButton action="#{ct.btSalvar(a)}" update="@form" style="width: 100%" value="Salvar"/>
                     </div>
                 </div>
-                <p:dataTable value="">
+                <p:dataTable value="#{ct.dados}" var="rs">
                     <p:column headerText="Cliente">
-                        <p:outputLabel value="Joari dos Santos" />
+                        <p:outputLabel value="#{rs.nomCli} " />
                     </p:column>
                     <p:column headerText="Contato">
-                        <p:outputLabel value="6555656565"/>
+                        <p:outputLabel value="#{rs.conCli}"/>
                     </p:column>
                     <p:column>
-                        <p:commandLink value="alterar"/>
+                        <p:commandLink action="#{ct.btAlterar(a)}" update="@form" value="alterar"/>
                     </p:column>
                     <p:column>
-                        <p:commandLink value="excluir"/>
+                        <p:commandLink action="#{ct.btExcluir(a)}" update="@form" value="excluir"/>
                     </p:column>
                         
                 </p:dataTable>
@@ -45,7 +45,7 @@
                         
                     </div>
                     <div class=" ui-g-12 ui-lg-2 ">
-                        <p:commandButton style="width: 100%" value="Limpar Tabela"/>
+                        <p:commandButton  action="#{ct.btLimpaTab(a)}" update="@form" style="width: 100%" value="Limpar Tabela"/>
                     </div>
                     
                 </div>
